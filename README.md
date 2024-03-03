@@ -1,7 +1,7 @@
 
 # TypeScript Projects Repository
 
-This repository contains a collection of TypeScript projects created during my course and other personal projects. Each project is organized into its own folder within the repository.
+This repository contains a collection of TypeScript projects created during my course "Cloud Applied Generative AI", and other personal projects. Each project is organized into its own folder within the repository.
 
 
 
