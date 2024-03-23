@@ -2,15 +2,16 @@
 import inquirer from "inquirer";
 import chalk from "chalk"
 
-const max: number = 10;
-const min: number = 1;
+let max: number = 5;
+let min: number = 1;
 const range = max - min + 1;
 
 let answer;
 let flag : boolean = false;
+let attempts = 5;
 let score = 5;
 
-for(let i =0; i<5; i++){
+for(let i = 0; i < attempts; i++){
     const randomFloat = Math.random() * range + min;
     const randomInt = Math.floor(randomFloat);
        answer = await inquirer.prompt([
@@ -35,7 +36,7 @@ if(flag == false){
 
 let Perc = (score/5)*100;
 
-console.log(`\n${chalk.yellow.bold(`Your Right guessing Percentage is ${Perc}%`)}`);
+console.log(`\n${chalk.yellow.bold(`Your probability of guessing the right number was ${Perc}%`)}`);
 
 
 
