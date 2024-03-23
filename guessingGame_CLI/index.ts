@@ -1,10 +1,20 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
+import select from "inquirer"
 import chalk from "chalk"
 
-let max: number = 5;
-let min: number = 1;
-const range = max - min + 1;
+let GetRange = await select.prompt([{message: "select the range between 1 to", type: "list", name:"selectRange", choices:["5","10","15"]}])
+let range : number = 5 
+if(GetRange.selectRange == 5){
+    range = 5 
+}else if(GetRange.selectRange == 10){
+    range = 10 
+}else if(GetRange.selectRange == 15){
+    range = 15 
+}
+
+// let max: number = 5;
+// let min: number = 1;
 
 let answer;
 let flag : boolean = false;
@@ -12,14 +22,14 @@ let attempts = 5;
 let score = 5;
 
 for(let i = 0; i < attempts; i++){
-    const randomFloat = Math.random() * range + min;
+    const randomFloat = Math.random() * range + 1;
     const randomInt = Math.floor(randomFloat);
        answer = await inquirer.prompt([
-      { message: `guess the number between ${min} to ${max} =>`, type: "number", name: "guess" },
+      { message: `guess the number between 1 to ${range} =>`, type: "number", name: "guess" },
     ]);
 
     if(answer.guess === randomInt){
-        console.log(chalk.whiteBright.bgGreen.bold("Hurray! You guessed the Number Right"));
+        console.log(chalk.whiteBright.bgGreen.bold("Hurray! You guessed the Right Number"));
         flag = true;
         break;
     }else if(answer !== randomInt && i < 4){
