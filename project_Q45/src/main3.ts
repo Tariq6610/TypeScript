@@ -1,5 +1,5 @@
 // Q21
-let Myself = {
+let Myself : {Name:string; Age:number; 'Highest Qualification':string; Batch:string} = {
     Name : "Tariq",
     Age : 23,
     'Highest Qualification' : "bachelors",
@@ -56,16 +56,16 @@ console.log(grass == "Blue");
 // Q24
 let stri1 : string = "my name is M.tariq";
 let stri2 : string = "My name is not traiq syed";
-console.log(stri1 == stri2)
+console.log("str1 == str2",stri1 == stri2)
 
 let str3 : string = "i live in karachi";
 let str4 : string = "i live in karachi";
-console.log(str3 == str4);
+console.log("str3 == str4",str3 == str4);
 
 let str5 : string = stri2.toLowerCase()
-console.log(stri2 == str5)
+console.log("str2 == str5",stri2 == str5)
 
-console.log(str5 == stri2.toLowerCase());
+console.log("str5 == str2",str5 == stri2.toLowerCase());
 
 let x = 25;
 let y = 30;
@@ -216,3 +216,14 @@ for(let i = 0; i < NewUsers.length; i++){
     }
     flag = false;
 }
+
+// Q32 Or
+let currentUsers1 : string[] = ["Admin","Tariq","Waseem"];
+let NewUsers1 : string[] = ["Admin","Tariq","Asad","Waleed","Arsalan","Waseem"];
+NewUsers1.forEach((newUser)=>{
+    if(currentUsers1.some(currentUser => newUser === currentUser)){
+        console.log(`${newUser} is taken plz try different name`);     
+    }else{
+        console.log(`${newUser} is availble`)
+    }
+})

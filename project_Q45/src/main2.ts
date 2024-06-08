@@ -9,13 +9,15 @@ guests.forEach(person => {
 // Q15
 guests = ["farhan","waseem","waleed","kamran","sharukh"];
 guests.forEach(person => {
-    // console.log(`${person}, I would like to invite you for a dinner! plz join us tomorrow`);
+    console.log(`${person}, I would like to invite you for a dinner! plz join us tomorrow`);
 });
 
-let unarrivedGuest = guests.splice(3,1,"Huzaifa");
-console.log(`unfortunately ${unarrivedGuest} can not come for the dinner party`);
+let unarrivedGuest = 'kamran'
+guests[guests.indexOf('kamran')] = 'Arsalan'
+
+console.log('new List ===>')
 guests.forEach(person => {
-    console.log(`${person}, I would like to invite you for a dinner! plz join us tomorrow`);
+    console.log(` ${person}, I would like to invite you for a dinner! plz join us tomorrow`);
 });
 
 
@@ -32,22 +34,14 @@ newGuestList.forEach(person => {
 
 // here i am reusing the variable newguestList which is declared and defined in Q16
 // Q17
-let firstRemoved = newGuestList.pop()
-console.log(`I am Sorry ${firstRemoved} I can't invite you for a dinner!`)
-let secondRemoved = newGuestList.pop()
-console.log(`I am Sorry ${secondRemoved} I can't invite you for a dinner!`)
-let thirdRemoved = newGuestList.pop()
-console.log(`I am Sorry ${thirdRemoved} I can't invite you for a dinner!`)
-let fourthRemoved = newGuestList.pop()
-console.log(`I am Sorry ${fourthRemoved} I can't invite you for a dinner!`)
-let fifthRemoved = newGuestList.pop()
-console.log(`I am Sorry ${fifthRemoved} I can't invite you for a dinner!`)
-let sixthRemoved = newGuestList.pop()
-console.log(`I am Sorry ${sixthRemoved} I can't invite you for a dinner!`)
-
-newGuestList.forEach(person => {
-    console.log(`${person}, I would like to let you know that you are still invited for the dinner!`);
-});
+while(newGuestList.length > 2){
+    let removedGuest = newGuestList.pop()
+    console.log(`I am Sorry ${removedGuest} I can't invite you for a dinner!`)
+  }
+  
+  newGuestList.forEach(person => {
+      console.log(`${person}, I would like to let you know that you are still invited for the dinner!`);
+  });
 
 newGuestList.pop()
 newGuestList.pop()
@@ -72,7 +66,7 @@ console.log(favPlaces);
 //Reverse sorted array, first got copy of origional array in order to keep original array intact
 console.log("Reverse sorted array")
 let reverseFavPlaces = favPlaces.slice();
-console.log(reverseFavPlaces.sort((a,b) => b.localeCompare(a)));
+console.log(reverseFavPlaces.sort().reverse());
 
 //to check original array
 console.log("origional array : ")
@@ -104,10 +98,7 @@ console.log(`I am inviting ${MyGuestList.length} people to dinner`)
 
 // Q20
 let countries : string[] = ["Pakistan","India","China","Afghanistan","Iran"];
-let i = 1
-countries.forEach(country => {
-    console.log(`${i}- ${country}`)
-    i++
-});
+console.log(`countries i would like to visit ${countries}`)
+
 
 

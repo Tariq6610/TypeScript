@@ -53,7 +53,7 @@ function make_shirt(size : string,text : string){
     console.log(`A shirt of size ${size} with a text ${text} has been made`)
 }
 
-make_shirt('"medium"','"superMan"')
+make_shirt("medium","superMan")
 
 
 
@@ -90,15 +90,21 @@ console.log(city_country("Paris","France"))
 
 
 // Q40
-function make_album(ArtistName : string, AlbumTitle : string): {name : string; title: string}{
-    return{
-        name : ArtistName,
-        title : AlbumTitle
+function make_album(ArtistName: string, AlbumTitle: string, tracks?: number){
+    let obj: { name: string, Title: string, tracks?: number } = {
+        name: ArtistName,
+        Title: AlbumTitle
+    };
+
+    if (tracks) {
+        obj['tracks'] = tracks;
     }
+
+    return obj;
 }
 
-let Album = make_album("abc","def")
-console.log(Album);
+console.log(make_album("abc", "def"));
+console.log(make_album('abc',"def", 4));
 
 
 // Q41
@@ -124,7 +130,7 @@ function make_great(arr : string[]){
     return newArr;
 }
 
-console.log(make_great(magicians2));
+show_magicians(make_great(magicians2));
 
 
 // Q43
@@ -154,16 +160,23 @@ make_sandwiche(items3);
 
 
 // Q45
-function Select_car(manuf : string, modl : string, clr : string, fuelTpe : string):{Manufacuturer : string; Model : string; Color : string; FuelType : string}{
-    return{
-        Manufacuturer : manuf,
-        Model : modl,
-        Color : clr,
-        FuelType : fuelTpe,
-    }
-}
-
-let car = Select_car("Toyota","Camry","Blue","Hybrid")
-
-console.log(car)
+function make_car(
+    manufacturer: string,
+    model: string,
+    ...options: [string, any][]
+  ): { manufacturer: string; model: string; [key: string]: any } {
+    let car: { manufacturer: string; model: string; [key: string]: any } = {
+      manufacturer,
+      model
+    };
+    
+    options.forEach(([key, value]) => {
+      car[key] = value;
+    });
+    
+    return car;
+  }
+  
+  console.log(make_car("Toyota", "Corolla", ["color", "red"], ["year", 2020]));
+  console.log(make_car("Ford", "Fiesta", ["color", "blue"], ["sunroof", true]));
 
